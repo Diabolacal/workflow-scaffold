@@ -2,7 +2,21 @@
 
 How to adapt this workflow scaffold for your project.
 
-## Step 1: Replace Placeholders
+## Step 1: Run the Bootstrap Prompt (Recommended)
+
+The fastest way to configure this scaffold:
+
+1. Open this repository in **VS Code**
+2. Open **Copilot Chat** (Agent mode recommended)
+3. Open `.github/prompts/bootstrap.prompt.md`
+4. Click **Run** (or copy contents into Copilot Chat)
+5. Answer the guided questions — all `{{PLACEHOLDER}}` values are replaced automatically
+
+**If bootstrap completes successfully, skip to Step 4** (review skills). The prompt handles Steps 2 and 3 for you.
+
+### Manual Fallback
+
+If you prefer to configure manually, or if the bootstrap prompt is unavailable:
 
 Every file uses `{{PLACEHOLDER}}` markers for project-specific values. Run this to find them all:
 
@@ -13,6 +27,8 @@ grep -r "{{" --include="*.md" --include="*.json" --include="*.jsonc" .
 Replace each placeholder with your project's actual values. See `docs/WORKSPACE_ABSTRACT.md` for the full placeholder table.
 
 ## Step 2: Fill In Architecture
+
+> **Note:** The bootstrap prompt handles this step automatically. These instructions are for manual setup only.
 
 In `.github/copilot-instructions.md`, expand these sections with your project details:
 

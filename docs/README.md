@@ -37,6 +37,7 @@ Central map for all scaffold documentation. Consult this when looking for specif
 ## Prompts & Skills
 | File | Purpose |
 |---|---|
+| [.github/prompts/bootstrap.prompt.md](../.github/prompts/bootstrap.prompt.md) | **Interactive setup — run this first!** |
 | [.github/prompts/rehydrate.prompt.md](../.github/prompts/rehydrate.prompt.md) | Context recovery after memory loss |
 | [.vscode/prompts/plan.prompt.md](../.vscode/prompts/plan.prompt.md) | Task planning prompt |
 | [.github/skills/deploy/SKILL.md](../.github/skills/deploy/SKILL.md) | Deployment workflow |
