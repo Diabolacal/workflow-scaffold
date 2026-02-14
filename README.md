@@ -2,20 +2,24 @@
 
 A reusable, project-agnostic scaffold for AI-assisted development workflows in VS Code.
 
-## First-Time Setup (Required)
-
-> **New to this repo?** Follow these steps to configure the scaffold for your project. No manual file editing required.
+## Getting Started (Vibe Mode)
 
 1. Open this repository in **VS Code**
-2. Open **Copilot Chat** (Agent mode recommended — click the dropdown next to the chat input and select "Agent")
-3. Open the bootstrap prompt file: [.github/prompts/bootstrap.prompt.md](.github/prompts/bootstrap.prompt.md)
-4. Click the **Run** button (play icon) at the top of the prompt file — or copy its contents into Copilot Chat
-5. Answer the interactive questions one at a time
-6. The scaffold converts itself into your configured project — all `{{PLACEHOLDER}}` values are replaced automatically
+2. Install **GitHub Copilot** (or any capable AI chat extension)
+3. Open **Copilot Chat** (Agent mode recommended)
+4. Run `.github/prompts/vibe-bootstrap.prompt.md`
+5. Follow the guided setup — describe your idea, get a recommended stack, and generate your project foundation
 
-**That's it.** After bootstrap completes, commit the changes and start building.
+**That's it.** The bootstrap creates your PRD, architecture draft, and next steps — then you start building.
 
-> **Fallback:** If you prefer manual setup, see [docs/SCAFFOLD_NOTES.md](docs/SCAFFOLD_NOTES.md) for step-by-step instructions.
+> **Advanced users:** If you prefer manual setup, see [docs/SCAFFOLD_NOTES.md](docs/SCAFFOLD_NOTES.md) for step-by-step placeholder replacement.
+
+### VS Code Tips for Vibe Builders
+
+- Use Copilot Chat in **Agent mode** for multi-step work
+- Avoid running multiple AI extensions at once — they can conflict
+- Let the agent run safe CLI commands when appropriate
+- Review diffs before committing
 
 ---
 
@@ -34,7 +38,7 @@ A reusable, project-agnostic scaffold for AI-assisted development workflows in V
 ## Quick Start
 
 1. Copy this scaffold into your project (or use as a template repo)
-2. **Run the bootstrap prompt** — see [First-Time Setup](#first-time-setup-required) above
+2. **Run the vibe bootstrap** — see [Getting Started](#getting-started-vibe-mode) above
 3. Open in VS Code with Copilot enabled — agents automatically load the steering files
 4. Start building
 
@@ -50,7 +54,7 @@ llms.txt                           ← AI-readable doc pointer
   copilot-instructions.md          ← Authoritative guardrails
   security-guidelines.md           ← OWASP security rules
   prompts/
-    bootstrap.prompt.md            ← Interactive setup (run this first!)
+    vibe-bootstrap.prompt.md       ← Interactive setup (run this first!)
     rehydrate.prompt.md            ← Context recovery prompt
   skills/deploy/SKILL.md           ← Deploy skill
   skills/docker-ops/SKILL.md       ← Container ops skill
@@ -77,6 +81,8 @@ VS Code 1.104+ automatically loads `AGENTS.md` into every Copilot agent conversa
 - Run verification gates (typecheck, build, smoke tests)
 - Log decisions and maintain context
 - Execute CLI commands directly instead of asking you to run them
+
+> **Optional:** Deployment templates are available in `templates/` when you're ready for hosting.
 
 ## Requirements
 

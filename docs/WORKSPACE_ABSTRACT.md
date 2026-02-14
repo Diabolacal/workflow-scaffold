@@ -22,12 +22,12 @@ This repository is a **workflow scaffold** — a reusable starting point for pro
 
 ## How to Use
 
-### Starting a New Project (Recommended: Bootstrap Prompt)
+### Starting a New Project (Recommended: Vibe Bootstrap)
 
 1. Clone or copy this scaffold into your project directory
 2. Open in **VS Code** with Copilot enabled
-3. Open `.github/prompts/bootstrap.prompt.md` and run it in Copilot Chat (Agent mode)
-4. Answer the guided questions — all placeholders are replaced automatically
+3. Open `.github/prompts/vibe-bootstrap.prompt.md` and run it in Copilot Chat (Agent mode)
+4. Describe your idea — the prompt recommends a stack and generates foundation docs
 5. Review the completion checklist and commit
 
 ### Starting a New Project (Manual Fallback)
@@ -59,7 +59,7 @@ This repository is a **workflow scaffold** — a reusable starting point for pro
   copilot-instructions.md   ← Authoritative agent guardrails (read by Copilot)
   security-guidelines.md    ← OWASP-based secure coding rules
   prompts/
-    bootstrap.prompt.md      ← Interactive setup — run this first!
+    vibe-bootstrap.prompt.md ← Interactive setup — run this first!
     rehydrate.prompt.md      ← Context recovery after memory loss
   skills/
     deploy/SKILL.md          ← Deploy workflow skill
