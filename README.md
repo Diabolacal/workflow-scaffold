@@ -8,6 +8,7 @@ A reusable, project-agnostic scaffold for AI-assisted development workflows in V
 2. Install **GitHub Copilot** (recommended — 30-day free trial available)
 3. Open **Copilot Chat** (Agent mode recommended)
 4. Run `.github/prompts/vibe-bootstrap.prompt.md`
+   Open that file, copy all its contents, paste into Copilot Chat, then press enter.
 5. Follow the guided setup — describe your idea, get a recommended stack, and generate your project foundation
 
 **That's it.** The bootstrap creates your PRD, architecture draft, and next steps — then you start building.

@@ -2,6 +2,9 @@
 
 Purpose: Authoritative source of truth for AI agent guardrails, interaction patterns, and workflow conventions in this VS Code project. GitHub Copilot loads this file automatically. Follow the patterns below when adding or modifying code. Optimized for a "vibe coding" workflow: the human provides intent (non‑coder friendly) and the AI agent converts intent into safe, minimal, verifiable changes.
 
+## Beginner Defaulting
+If the user doesn't know an answer yet, propose a sensible default and proceed. Do not block progress.
+
 ## Operator Quick Start (Non‑Coder)
 1. Describe goal in plain language (what you want changed / added / fixed).
 2. Assistant replies with: checklist, assumptions (≤2), risk class, plan.
@@ -142,13 +145,13 @@ If user asks for broad refactor, first propose smallest path to accomplish user-
 
 ## Conventions & Patterns
 - State bridging to globals: When a feature needs instrumentation, expose a single global setter rather than sprinkling tracking calls. Extend this pattern for new mode-level timers.
-- Usage metrics categories:
+- Usage metrics categories (optional — only if this project uses analytics):
   - **Counters:** increment-only events.
   - **First-in-session counters:** fire a `*_first` event to also increment a separate `*_sessions` counter.
   - **Time sums:** send `{ type:'xyz_time', ms }` at end-of-session. Client accumulates, server declares `sum/count` keys.
   - **Buckets:** client chooses bucket id, server just counts.
 - Adding a new metric: (1) emit in centralized tracking utility (2) add mapping server-side with counters or sum schema (3) extend stats display logic.
-- Web worker performance: Reuse spatial grid & neighbor caches keyed by integer parameters. When parameters change invalidating cache keys, clear caches. Preserve this to avoid memory bloat or stale data reuse.
+- Web worker performance (optional — only if this project uses Web Workers): Reuse spatial grid & neighbor caches keyed by integer parameters. When parameters change invalidating cache keys, clear caches. Preserve this to avoid memory bloat or stale data reuse.
 - Large UI text generation: build condensed representation first (segments), then paginate to max length. Follow existing pagination patterns to avoid off-by-one bugs.
 - Do NOT store PII; events are aggregate only. Keep new event payload fields whitelisted and non-identifying.
 
@@ -157,23 +160,22 @@ If user asks for broad refactor, first propose smallest path to accomplish user-
 ### TypeScript/React Patterns
 ```typescript
 // ✅ GOOD – Typed props, error handling, descriptive names
-interface RouteCalculationProps {
-  origin: string;
-  destination: string;
-  maxRange: number;
+interface SearchQueryProps {
+  query: string;
+  category: string;
+  maxResults: number;
 }
 
-async function calculateRoute({ origin, destination, maxRange }: RouteCalculationProps): Promise<Route> {
-  if (!origin || !destination) {
-    throw new Error('Origin and destination required');
+async function runSearch({ query, category, maxResults }: SearchQueryProps): Promise<SearchResult> {
+  if (!query || !category) {
+    throw new Error('Query and category are required');
   }
-  const worker = new Worker(new URL('./processing_worker.ts', import.meta.url));
   // ... implementation
 }
 
 // ❌ BAD – Any types, vague names, no validation
-async function calc(o: any, d: any, r: any) {
-  return await worker.postMessage({ o, d, r });
+async function search(q: any, c: any, n: any) {
+  return await doSearch(q, c, n);
 }
 ```
 
@@ -206,6 +208,8 @@ function DataPanel() {
 ```
 
 ### Worker Communication
+> _Optional — only applicable if this project uses Web Workers._
+
 ```typescript
 // ✅ GOOD – Typed messages, throttled progress, error boundary
 interface WorkerProgress {
@@ -232,6 +236,8 @@ worker.onmessage = (e) => {
 ```
 
 ### Usage Metrics
+> _Optional — only applicable if this project uses usage tracking / analytics._
+
 ```typescript
 // ✅ GOOD – Centralized in a single tracking module
 import { track } from './utils/tracking';
@@ -339,6 +345,8 @@ Upon task completion, move Working Memory files to `docs/archive/working_memory/
 - **Silent metric accumulation** → document intentionally hidden counters; prefer visible display or explicit internal note.
 
 ## Adding Features (Pattern)
+> _These patterns are optional — applicable when the project uses a web frontend with workers and/or analytics._
+
 - **New engagement mode with timing:**
   1. Manage `[mode, setMode]` + `useRef` pattern in the relevant component.
   2. Expose a global setter (e.g., `window.__setNewMode`) for instrumentation bridging.
