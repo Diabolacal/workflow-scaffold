@@ -2,6 +2,8 @@
 
 A reusable, project-agnostic scaffold for AI-assisted development workflows in VS Code.
 
+This is not a framework. It is a workflow.
+
 ## Getting Started (Vibe Mode)
 
 1. Open this repository in **VS Code**
