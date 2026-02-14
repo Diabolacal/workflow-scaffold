@@ -5,7 +5,7 @@ A reusable, project-agnostic scaffold for AI-assisted development workflows in V
 ## Getting Started (Vibe Mode)
 
 1. Open this repository in **VS Code**
-2. Install **GitHub Copilot** (or any capable AI chat extension)
+2. Install **GitHub Copilot** (recommended — 30-day free trial available)
 3. Open **Copilot Chat** (Agent mode recommended)
 4. Run `.github/prompts/vibe-bootstrap.prompt.md`
 5. Follow the guided setup — describe your idea, get a recommended stack, and generate your project foundation
