@@ -27,6 +27,11 @@
     // Organization instructions (enabled by default in 1.109)
     "github.copilot.chat.organizationInstructions.enabled": true,
 
+    // Always load scaffold instructions for Copilot code generation
+    "github.copilot.chat.codeGeneration.instructions": [
+        { "file": ".github/copilot-instructions.md" }
+    ],
+
     // Terminal tool behavior for agents:
     // - Keep general auto-approve OFF for safety (sensitive commands need confirmation)
     // - Auto-approve npm/pnpm/yarn scripts from package.json (safe workspace scripts)
